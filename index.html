@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Hunt Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 2em;
+      background: #f9f9f9;
+    }
+    .clue {
+      display: none;
+      margin-top: 2em;
+    }
+    .digit {
+      font-size: 2em;
+      color: green;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rome to Naples Hunt</h1>
+  <p>Answer each clue to reveal the next one—and collect a hidden code digit along the way!</p>
+
+  <!-- Clue 1: Rome - Spanish Steps -->
+  <div class="clue" id="clue1" style="display:block;">
+    <h2>Rome</h2>
+    <p>What is the small fountain at the bottom of the Spanish Steps shaped like?</p>
+    <input type="text" id="answer1">
+    <button onclick="checkAnswer(1, 'boat')">Submit</button>
+    <div id="digit1" class="digit"></div>
+  </div>
+
+  <!-- Clue 2: Vatican - Swiss Guard -->
+  <div class="clue" id="clue2">
+    <h2>Vatican</h2>
+    <p>How many main colors are on the Swiss Guard uniform?</p>
+    <input type="text" id="answer2">
+    <button onclick="checkAnswer(2, '3')">Submit</button>
+    <div id="digit2" class="digit"></div>
+  </div>
+
+  <!-- Clue 3: Colosseum - Animal Species -->
+  <div class="clue" id="clue3">
+    <h2>Colosseum</h2>
+    <p>Roughly how many species of animals were used in ancient Colosseum games?</p>
+    <input type="text" id="answer3">
+    <button onclick="checkAnswer(3, '50')">Submit</button>
+    <div id="digit3" class="digit"></div>
+  </div>
+
+  <!-- Clue 4: Naples - Margherita Pizza -->
+  <div class="clue" id="clue4">
+    <h2>Naples</h2>
+    <p>Which queen is said to have inspired the Margherita pizza?</p>
+    <input type="text" id="answer4">
+    <button onclick="checkAnswer(4, 'margherita')">Submit</button>
+    <div id="digit4" class="digit"></div>
+  </div>
+
+  <!-- Final Message -->
+  <div class="clue" id="complete">
+    <h2>You've completed the hunt!</h2>
+    <p>Use your 4-digit code to unlock the final prize!</p>
+  </div>
+
+  <script>
+    function normalize(text) {
+      return text.trim().toLowerCase().replace(/\s+/g, '');
+    }
+
+    function checkAnswer(step, correctAnswer) {
+      const input = document.getElementById('answer' + step).value;
+      if (normalize(input) === normalize(correctAnswer)) {
+        // Reveal random digit
+        const digit = Math.floor(Math.random() * 10);
+        document.getElementById('digit' + step).textContent = "Code digit: " + digit;
+
+        // Show next clue
+        const nextClue = document.getElementById('clue' + (step + 1));
+        if (nextClue) {
+          nextClue.style.display = 'block';
+        } else {
+          document.getElementById('complete').style.display = 'block';
+        }
+      } else {
+        alert("Try again!");
+      }
+    }
+  </script>
+
+</body>
+</html>
