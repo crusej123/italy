@@ -126,8 +126,13 @@
     <!-- Completion -->
     <div class="clue" id="complete">
       <h2>You're Done!</h2>
-      <p class="final">You’ve completed the hunt- head to https://crusej123.github.io/final-stage/</p>
+      <p class="final">You’ve completed the hunt — now enter your 4-digit code below to unlock the final destination.</p>
       <p class="code-display" id="finalCode"></p>
+
+      <input type="text" id="codeInput" placeholder="Enter the final 4-digit code">
+      <button onclick="checkFinalCode()">Reveal Location</button>
+
+      <div id="locationResult" class="final" style="display:none;"></div>
     </div>
   </div>
 
@@ -141,15 +146,12 @@
     function checkAnswer(step, correctAnswer) {
       const input = document.getElementById('answer' + step).value;
       if (normalize(input) === normalize(correctAnswer)) {
-        // Add new digit to code
         const digit = Math.floor(Math.random() * 10);
         secretCode += digit;
 
-        // Hide current clue
         const currentClue = document.getElementById('clue' + step);
         currentClue.classList.remove('active');
 
-        // Show next clue or final message
         const nextStep = step + 1;
         const nextClue = document.getElementById('clue' + nextStep);
         if (nextClue) {
@@ -161,6 +163,18 @@
         }
       } else {
         alert("Try again!");
+      }
+    }
+
+    function checkFinalCode() {
+      const inputCode = normalize(document.getElementById('codeInput').value);
+      if (inputCode === secretCode) {
+        const location = "///sailing.moment.promise"; // Replace with your actual what3words address
+        document.getElementById('locationResult').style.display = 'block';
+        document.getElementById('locationResult').innerHTML =
+          `Congratulations! Your final location is: <a href="https://what3words.com/sailing.moment.promise" target="_blank">${location}</a>`;
+      } else {
+        alert("That code doesn't match. Try again!");
       }
     }
   </script>
