@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Travel Hunt Quiz</title>
+  <title>Chloe's Travel Hunt</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -67,78 +67,125 @@
       display: block;
     }
 
-    .code-display {
-      font-size: 1.2em;
-      color: #2d7ff9;
-      font-weight: bold;
-      margin-bottom: 1em;
-      text-align: center;
-    }
-
     .final {
       text-align: center;
       margin-top: 2em;
       font-size: 1.2em;
       color: #444;
     }
+
+    .final a {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Chloe's Italy treasure hunt</h1>
-    <p>Answer each clue to reveal the next one & reveal your code to get your prize</p>
+    <h1>Chloe's Italy Treasure Hunt</h1>
+    <p>Answer each clue to move closer to your surprise destination!</p>
 
-    <!-- Clue 1 -->
+    <!-- Questions -->
     <div class="clue active" id="clue1">
-      <h2>Rome</h2>
-      <p>What is the small fountain at the bottom of the Spanish Steps shaped like?</p>
+      <h2>Bristol Airport</h2>
+      <p>What coffee shop is “fuelled by freshness” in Bristol airport?</p>
       <input type="text" id="answer1">
-      <button onclick="checkAnswer(1, 'boat')">Submit</button>
+      <button onclick="checkAnswer(1, 'soulgrain')">Submit</button>
     </div>
 
-    <!-- Clue 2 -->
     <div class="clue" id="clue2">
-      <h2>Vatican</h2>
-      <div class="code-display" id="code2"></div>
-      <p>How many main colors are on the Swiss Guard uniform?</p>
+      <h2>Soul + Grain</h2>
+      <p>What drink did Joe pay too much for at Soul + Grain?</p>
       <input type="text" id="answer2">
-      <button onclick="checkAnswer(2, '3')">Submit</button>
+      <button onclick="checkAnswer(2, 'coffee')">Submit</button>
     </div>
 
-    <!-- Clue 3 -->
     <div class="clue" id="clue3">
-      <h2>Colosseum</h2>
-      <div class="code-display" id="code3"></div>
-      <p>Roughly how many species of animals were used in ancient Colosseum games?</p>
+      <h2>Rome Flight</h2>
+      <p>What aircraft did we board to get to Rome?</p>
       <input type="text" id="answer3">
-      <button onclick="checkAnswer(3, '50')">Submit</button>
+      <button onclick="checkAnswer(3, 'airbusa320')">Submit</button>
     </div>
 
-    <!-- Clue 4 -->
     <div class="clue" id="clue4">
-      <h2>Naples</h2>
-      <div class="code-display" id="code4"></div>
-      <p>Which queen is said to have inspired the pizza?</p>
+      <h2>In the Air</h2>
+      <p>What did Joe pay too much for on the Airbus A320?</p>
       <input type="text" id="answer4">
-      <button onclick="checkAnswer(4, 'margherita')">Submit</button>
+      <button onclick="checkAnswer(4, 'coffee')">Submit</button>
     </div>
 
-    <!-- Completion -->
+    <div class="clue" id="clue5">
+      <h2>Rome</h2>
+      <p>What is the name of the river flowing through Rome?</p>
+      <input type="text" id="answer5">
+      <button onclick="checkAnswer(5, 'tiber')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue6">
+      <h2>Spanish Steps</h2>
+      <p>What is the small fountain at the bottom of the Spanish Steps shaped like?</p>
+      <input type="text" id="answer6">
+      <button onclick="checkAnswer(6, 'boat')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue7">
+      <h2>Vatican</h2>
+      <p>How many colours are there on the uniform of the Swiss Guard?</p>
+      <input type="text" id="answer7">
+      <button onclick="checkAnswer(7, '3')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue8">
+      <h2>Colosseum</h2>
+      <p>Roughly how many species of animals were used in the Colosseum?</p>
+      <input type="text" id="answer8">
+      <button onclick="checkAnswer(8, '50')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue9">
+      <h2>Religion</h2>
+      <p>What religion is centered on the Vatican?</p>
+      <input type="text" id="answer9">
+      <button onclick="checkAnswer(9, 'catholicism')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue10">
+      <h2>Naples</h2>
+      <p>What volcano looms over Naples?</p>
+      <input type="text" id="answer10">
+      <button onclick="checkAnswer(10, 'vesuvius')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue11">
+      <h2>Streets of Naples</h2>
+      <p>What is Spaccanapoli?</p>
+      <input type="text" id="answer11">
+      <button onclick="checkAnswer(11, 'street')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue12">
+      <h2>Pizza</h2>
+      <p>Which queen is said to have inspired the pizza?</p>
+      <input type="text" id="answer12">
+      <button onclick="checkAnswer(12, 'margherita')">Submit</button>
+    </div>
+
+    <div class="clue" id="clue13">
+      <h2>Pompeii</h2>
+      <p>What city was destroyed by the eruption of Mount Vesuvius?</p>
+      <input type="text" id="answer13">
+      <button onclick="checkAnswer(13, 'pompeii')">Submit</button>
+    </div>
+
+    <!-- Final step -->
     <div class="clue" id="complete">
-      <h2>You're Done!</h2>
-      <p class="final">You’ve completed the hunt — now enter your 4-digit code below to unlock the final destination.</p>
-      <p class="code-display" id="finalCode"></p>
-
-      <input type="text" id="codeInput" placeholder="Enter the final 4-digit code">
-      <button onclick="checkFinalCode()">Reveal Location</button>
-
-      <div id="locationResult" class="final" style="display:none;"></div>
+      <h2>You made it!</h2>
+      <p class="final">Congratulations! You've completed the treasure hunt.</p>
+      <p class="final">Your final destination is: <a href="https://what3words.com/sailing.moment.promise" target="_blank">///sailing.moment.promise</a></p>
+      <p class="final">🎧 Only play this message *at* the location: <a href="audio/final-message.mp3" target="_blank">Play Secret Audio</a></p>
     </div>
   </div>
 
   <script>
-    let secretCode = "";
-
     function normalize(text) {
       return text.trim().toLowerCase().replace(/\s+/g, '');
     }
@@ -146,35 +193,15 @@
     function checkAnswer(step, correctAnswer) {
       const input = document.getElementById('answer' + step).value;
       if (normalize(input) === normalize(correctAnswer)) {
-        const digit = Math.floor(Math.random() * 10);
-        secretCode += digit;
-
-        const currentClue = document.getElementById('clue' + step);
-        currentClue.classList.remove('active');
-
-        const nextStep = step + 1;
-        const nextClue = document.getElementById('clue' + nextStep);
+        document.getElementById('clue' + step).classList.remove('active');
+        const nextClue = document.getElementById('clue' + (step + 1));
         if (nextClue) {
-          document.getElementById('code' + nextStep).textContent = "Code so far: " + secretCode;
           nextClue.classList.add('active');
         } else {
           document.getElementById('complete').classList.add('active');
-          document.getElementById('finalCode').textContent = "Your final 4-digit code: " + secretCode;
         }
       } else {
         alert("Try again!");
-      }
-    }
-
-    function checkFinalCode() {
-      const inputCode = normalize(document.getElementById('codeInput').value);
-      if (inputCode === secretCode) {
-        const location = "///sailing.moment.promise"; // Replace with your actual what3words address
-        document.getElementById('locationResult').style.display = 'block';
-        document.getElementById('locationResult').innerHTML =
-          `Congratulations! Your final location is: <a href="https://what3words.com/sailing.moment.promise" target="_blank">${location}</a>`;
-      } else {
-        alert("That code doesn't match. Try again!");
       }
     }
   </script>
