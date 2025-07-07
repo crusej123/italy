@@ -72,15 +72,21 @@
       display: block;
     }
 
-    .clue img {
-      display: none;
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 1em;
+    #display-area {
+      text-align: center;
+      margin-top: 2em;
     }
 
-    .clue img.reveal {
+    #display-area img {
+      max-width: 100%;
+      border-radius: 12px;
       display: block;
+      margin: 0 auto 1em auto;
+    }
+
+    #display-text {
+      font-weight: 600;
+      color: #333;
     }
 
     .final {
@@ -108,115 +114,130 @@
     <h1>Chloe's Italy Treasure Hunt</h1>
     <p>Answer each clue to unlock the secret destination and win your prize!</p>
 
-    <!-- Clue 1 -->
+    <!-- Shared display area -->
+    <div id="display-area">
+      <img id="current-image" src="start.png" alt="Starting Image">
+      <p id="display-text">Your journey begins here!</p>
+    </div>
+
+    <!-- Clues -->
     <div class="clue active" id="clue1">
       <h2>Bristol Airport</h2>
       <p>What coffee shop is “fuelled by freshness” in Bristol airport?</p>
       <input type="text" id="answer1">
       <button onclick="checkAnswer(1, 'soul+grain')">Submit</button>
-      <img id="image1" src="IMG_1926.png" alt="Bristol Airport">
     </div>
 
-    <!-- Clue 2 (was Clue 3) -->
     <div class="clue" id="clue2">
       <h2>Rome Flight</h2>
       <p>What aircraft did we board to get to Rome?</p>
       <input type="text" id="answer2">
       <button onclick="checkAnswer(2, 'airbusa320')">Submit</button>
-      <img id="image2" src="IMG_1927.png" alt="Rome Flight">
     </div>
 
-    <!-- Clue 3 (was Clue 5) -->
     <div class="clue" id="clue3">
       <h2>Rome</h2>
       <p>What is the name of the river flowing through Rome?</p>
       <input type="text" id="answer3">
       <button onclick="checkAnswer(3, 'tiber')">Submit</button>
-      <img id="image3" src="IMG_1930.png" alt="Tiber River">
     </div>
 
-    <!-- Clue 4 (was Clue 6) -->
     <div class="clue" id="clue4">
       <h2>Spanish Steps</h2>
       <p>What is the small fountain at the bottom of the Spanish Steps shaped like?</p>
       <input type="text" id="answer4">
       <button onclick="checkAnswer(4, 'boat')">Submit</button>
-      <img id="image4" src="IMG_1931.png" alt="Spanish Steps Fountain">
     </div>
 
-    <!-- Clue 5 (was Clue 7) -->
     <div class="clue" id="clue5">
       <h2>Vatican</h2>
       <p>How many colours are there on the uniform of the Swiss Guard?</p>
       <input type="text" id="answer5">
       <button onclick="checkAnswer(5, '3')">Submit</button>
-      <img id="image5" src="IMG_1932.png" alt="Swiss Guard">
     </div>
 
-    <!-- Clue 6 (was Clue 8) -->
     <div class="clue" id="clue6">
       <h2>Colosseum</h2>
       <p>Roughly how many species of animals were used in the Colosseum?</p>
       <input type="text" id="answer6">
       <button onclick="checkAnswer(6, '50')">Submit</button>
-      <img id="image6" src="IMG_1929.png" alt="Colosseum">
     </div>
 
-    <!-- Clue 7 (was Clue 9) -->
     <div class="clue" id="clue7">
       <h2>Religion</h2>
       <p>What religion is centered on the Vatican?</p>
       <input type="text" id="answer7">
       <button onclick="checkAnswer(7, 'catholicism')">Submit</button>
-      <img id="image7" src="IMG_1928.png" alt="Vatican">
     </div>
 
-    <!-- Clue 8 (was Clue 10) -->
     <div class="clue" id="clue8">
       <h2>Naples</h2>
       <p>What volcano looms over Naples?</p>
       <input type="text" id="answer8">
       <button onclick="checkAnswer(8, 'vesuvius')">Submit</button>
-      <img id="image8" src="IMG_1933.png" alt="Mount Vesuvius">
     </div>
 
-    <!-- Clue 9 (was Clue 11) -->
     <div class="clue" id="clue9">
       <h2>Streets of Naples</h2>
       <p>What is Spaccanapoli?</p>
       <input type="text" id="answer9">
       <button onclick="checkAnswer(9, 'street')">Submit</button>
-      <img id="image9" src="IMG_1934.png" alt="Spaccanapoli">
     </div>
 
-    <!-- Clue 10 (was Clue 12) -->
     <div class="clue" id="clue10">
       <h2>Pizza</h2>
       <p>Which queen is said to have inspired the pizza?</p>
       <input type="text" id="answer10">
       <button onclick="checkAnswer(10, 'margherita')">Submit</button>
-      <img id="image10" src="IMG_1935.png" alt="Queen Margherita Pizza">
     </div>
 
-    <!-- Clue 11 (was Clue 13) -->
     <div class="clue" id="clue11">
       <h2>Pompeii</h2>
       <p>What city was destroyed by the eruption of Mount Vesuvius?</p>
       <input type="text" id="answer11">
       <button onclick="checkAnswer(11, 'pompeii')">Submit</button>
-      <img id="image11" src="IMG_1936" alt="Pompeii">
     </div>
 
     <!-- Final -->
     <div class="clue" id="complete">
       <h2>You made it!</h2>
-      <p class="final">🎉 Congratulations Chloe You've completed the treasure hunt.</p>
-      <p class="final">Your final destination is: <a href="https://what3words.com/terrotories.flexes.weddings" target="_blank">//territories.flexes.weddings</a></p>
+      <p class="final">🎉 Congratulations Chloe! You've completed the treasure hunt.</p>
+      <p class="final">Your final destination is: <a href="https://what3words.com/territories.flexes.weddings" target="_blank">//territories.flexes.weddings</a></p>
       <p class="final">🎧 Play this message only *at* the location: <a href="Sorrento.m4a" target="_blank">Play Secret Audio</a></p>
     </div>
   </div>
 
   <script>
+    const images = [
+      "start.png",
+      "IMG_1926.png",
+      "IMG_1927.png",
+      "IMG_1930.png",
+      "IMG_1931.png",
+      "IMG_1932.png",
+      "IMG_1929.png",
+      "IMG_1928.png",
+      "IMG_1933.png",
+      "IMG_1934.png",
+      "IMG_1935.png",
+      "IMG_1936.png"
+    ];
+
+    const texts = [
+      "Damn she a keeper",
+      "This girl knows her stuff",
+      "We on a plane but she more than plain",
+      "when in Rome",
+      "I know I gave this one away lol",
+      "You're on a roll dawg",
+      "This is thirsty work. Time for a conplimentary aperol",
+      "* Gyrates hips in celebration *",
+      "Thats a hella big mountain",
+      "You Spacker!",
+      "Pop off queen",
+      "I need a massage after all this"
+    ];
+
     function normalize(text) {
       return text.trim().toLowerCase().replace(/\s+/g, '');
     }
@@ -224,20 +245,20 @@
     function checkAnswer(step, correctAnswer) {
       const input = document.getElementById('answer' + step).value;
       if (normalize(input) === normalize(correctAnswer)) {
+        // Update shared image and text
+        document.getElementById('current-image').src = images[step];
+        document.getElementById('display-text').innerText = texts[step];
+
+        // Move to next clue
         const currentClue = document.getElementById('clue' + step);
-        const image = document.getElementById('image' + step);
-        if (image) {
-          image.classList.add('reveal');
+        currentClue.classList.remove('active');
+
+        const nextClue = document.getElementById('clue' + (step + 1));
+        if (nextClue) {
+          nextClue.classList.add('active');
+        } else {
+          document.getElementById('complete').classList.add('active');
         }
-        setTimeout(() => {
-          currentClue.classList.remove('active');
-          const nextClue = document.getElementById('clue' + (step + 1));
-          if (nextClue) {
-            nextClue.classList.add('active');
-          } else {
-            document.getElementById('complete').classList.add('active');
-          }
-        }, 1200); // 1.2s reveal
       } else {
         alert("Try again!");
       }
