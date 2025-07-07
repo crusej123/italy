@@ -106,7 +106,7 @@
 <body>
   <div class="container">
     <h1>Chloe's Italy Treasure Hunt</h1>
-    <p>Answer each clue to unlock the secret destination and win your prize</p>
+    <p>Answer each clue to unlock the secret destination and win your prize!</p>
 
     <!-- Clue 1 -->
     <div class="clue active" id="clue1">
@@ -114,35 +114,105 @@
       <p>What coffee shop is “fuelled by freshness” in Bristol airport?</p>
       <input type="text" id="answer1">
       <button onclick="checkAnswer(1, 'soul+grain')">Submit</button>
-      <img id="image1" src="images/bristol-airport.jpg" alt="Bristol Airport">
+      <img id="image1" src="bristol-airport.jpg" alt="Bristol Airport">
     </div>
 
-    <!-- Clue 2 -->
+    <!-- Clue 2 (was Clue 3) -->
     <div class="clue" id="clue2">
       <h2>Rome Flight</h2>
       <p>What aircraft did we board to get to Rome?</p>
       <input type="text" id="answer2">
       <button onclick="checkAnswer(2, 'airbusa320')">Submit</button>
-      <img id="image2" src="images/rome-flight.jpg" alt="Rome Flight">
+      <img id="image2" src="rome-flight.jpg" alt="Rome Flight">
     </div>
 
-    <!-- Clue 3 -->
+    <!-- Clue 3 (was Clue 5) -->
     <div class="clue" id="clue3">
       <h2>Rome</h2>
       <p>What is the name of the river flowing through Rome?</p>
       <input type="text" id="answer3">
       <button onclick="checkAnswer(3, 'tiber')">Submit</button>
-      <img id="image3" src="images/tiber-river.jpg" alt="Tiber River">
+      <img id="image3" src="tiber-river.jpg" alt="Tiber River">
     </div>
 
-    <!-- More clues... (continue the pattern) -->
+    <!-- Clue 4 (was Clue 6) -->
+    <div class="clue" id="clue4">
+      <h2>Spanish Steps</h2>
+      <p>What is the small fountain at the bottom of the Spanish Steps shaped like?</p>
+      <input type="text" id="answer4">
+      <button onclick="checkAnswer(4, 'boat')">Submit</button>
+      <img id="image4" src="spanish-steps.jpg" alt="Spanish Steps Fountain">
+    </div>
 
-    <!-- Final step -->
+    <!-- Clue 5 (was Clue 7) -->
+    <div class="clue" id="clue5">
+      <h2>Vatican</h2>
+      <p>How many colours are there on the uniform of the Swiss Guard?</p>
+      <input type="text" id="answer5">
+      <button onclick="checkAnswer(5, '3')">Submit</button>
+      <img id="image5" src="swiss-guard.jpg" alt="Swiss Guard">
+    </div>
+
+    <!-- Clue 6 (was Clue 8) -->
+    <div class="clue" id="clue6">
+      <h2>Colosseum</h2>
+      <p>Roughly how many species of animals were used in the Colosseum?</p>
+      <input type="text" id="answer6">
+      <button onclick="checkAnswer(6, '50')">Submit</button>
+      <img id="image6" src="colosseum.jpg" alt="Colosseum">
+    </div>
+
+    <!-- Clue 7 (was Clue 9) -->
+    <div class="clue" id="clue7">
+      <h2>Religion</h2>
+      <p>What religion is centered on the Vatican?</p>
+      <input type="text" id="answer7">
+      <button onclick="checkAnswer(7, 'catholicism')">Submit</button>
+      <img id="image7" src="vatican.jpg" alt="Vatican">
+    </div>
+
+    <!-- Clue 8 (was Clue 10) -->
+    <div class="clue" id="clue8">
+      <h2>Naples</h2>
+      <p>What volcano looms over Naples?</p>
+      <input type="text" id="answer8">
+      <button onclick="checkAnswer(8, 'vesuvius')">Submit</button>
+      <img id="image8" src="vesuvius.jpg" alt="Mount Vesuvius">
+    </div>
+
+    <!-- Clue 9 (was Clue 11) -->
+    <div class="clue" id="clue9">
+      <h2>Streets of Naples</h2>
+      <p>What is Spaccanapoli?</p>
+      <input type="text" id="answer9">
+      <button onclick="checkAnswer(9, 'street')">Submit</button>
+      <img id="image9" src="spaccanapoli.jpg" alt="Spaccanapoli">
+    </div>
+
+    <!-- Clue 10 (was Clue 12) -->
+    <div class="clue" id="clue10">
+      <h2>Pizza</h2>
+      <p>Which queen is said to have inspired the pizza?</p>
+      <input type="text" id="answer10">
+      <button onclick="checkAnswer(10, 'margherita')">Submit</button>
+      <img id="image10" src="margherita.jpg" alt="Queen Margherita Pizza">
+    </div>
+
+    <!-- Clue 11 (was Clue 13) -->
+    <div class="clue" id="clue11">
+      <h2>Pompeii</h2>
+      <p>What city was destroyed by the eruption of Mount Vesuvius?</p>
+      <input type="text" id="answer11">
+      <button onclick="checkAnswer(11, 'pompeii')">Submit</button>
+      <img id="image11" src="pompeii.jpg" alt="Pompeii">
+    </div>
+
+    <!-- Final -->
     <div class="clue" id="complete">
       <h2>You made it!</h2>
       <p class="final">🎉 Congratulations Chloe You've completed the treasure hunt.</p>
       <p class="final">Your final destination is: <a href="https://what3words.com/terrotories.flexes.weddings" target="_blank">//territories.flexes.weddings</a></p>
-      <p class="final">🎧 Play this message only *at* the location: <a href="audio/Sorrento.m4a" target="_blank">Play Secret Audio</a></p>
+      <p class="final">🎧 Play this message only *at* the location: <a href="Sorrento.m4a" target="_blank">Play Secret Audio</a></p>
     </div>
   </div>
 
@@ -159,7 +229,6 @@
         if (image) {
           image.classList.add('reveal');
         }
-        // Delay to let them see the image before moving on
         setTimeout(() => {
           currentClue.classList.remove('active');
           const nextClue = document.getElementById('clue' + (step + 1));
@@ -168,7 +237,7 @@
           } else {
             document.getElementById('complete').classList.add('active');
           }
-        }, 1200); // 1.2 seconds to view the image
+        }, 1200); // 1.2s reveal
       } else {
         alert("Try again!");
       }
